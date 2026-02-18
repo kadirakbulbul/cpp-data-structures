@@ -1,0 +1,22 @@
+What has been added and changed
+
+added Abstract class İtem
+added virtual destructor for memory cleanup
+id and descript properties are added to the Product class
+item class added
+Product class is now the child class of the item class 
+
+Class Hierarchy now:
+    İtem ---> Product ---> Service
+
+vector<product> and vector<services> became vector<item>
+
+print loops are changed to 
+
+  for (auto item : items) {
+    cout << item->GetTotalPrice() << endl;
+    grandTotal += item->GetTotalPrice();
+}
+
+
+

@@ -1,0 +1,116 @@
+This Programs simulates how a factory process products offers and services with 3 classes Departments,Products and Services. The program uses vectors to store data for these 3 classes then prints them after calculating the discounts and quantities.
+
+
+
+Data types and Classes of the Program
+
+Department class
+Represents the factory department with its members (id, name, descript, address)
+        members:
+        String id           variable for department ID (example İd "D1")
+        String name         variable for the department names (example "Electronics")
+        string descript     description for the department
+        string address       address of the department
+Public functions:
+    Constructor : 
+
+        Department(string i, string n, string d, string a)  the constructor initializes the variables. Parameters for the variables are strings
+    
+    Getters and Setters
+    string getId() const {return id;}
+    void setId(string i) {id = i;}
+
+    string getName() const {return name;}
+    void setName(string n) {name = n;}
+
+    string getDescript() const {return descript;}
+    void setDescript(string d) {descript = d;}
+
+    string getAddress() const {return address;}
+    void setAddress(string a) {address = a;}
+
+Getters for reading the data
+Setters for changing the data
+
+Reason for using only string: Because it is all text base information.
+
+
+
+Product Class (parent class)
+Represents a product produced by a department. It calculates the total price considering quantity and discounts.
+
+    string name                  name of the product.
+    Department* department       pointer to the department that produces the product
+    double price                 price of one unit of the product
+    double discount              discount amount or percentage
+    int quantity                 number of units
+    DiscountT discountType       enum to specify the discount type (amount or percentage)
+
+Public functions:
+    Constructor : 
+
+        Product(string n, Department* dep, double p, double d, int q, DiscountT dt)
+    
+
+    double GetEffectivePrice()      returns the price after applying the discount
+        
+    double GetTotalPrice()          returns the price for the total quantity
+
+    string getName()                returns the name of the product
+
+Reason for using double,int,Enum:
+double is used for the prices to handle decimal values
+int is used for quantity
+Enum DiscountT(ype)  enum ensures only valid type is used for the discount
+
+
+
+Service Class (child class)
+Represents the services of a product(delivery, assembly) this class helps us to calculate the total price by adding product and service price.
+
+    double duration              duration of the service in hours.
+
+    double rate                  hourly rate of the service.
+
+    double rateDiscount          discount applied to the rate.
+
+    DiscountT rateDiscountType   enum to choose the type of rate discount.
+
+Public functions:
+    Constructor : 
+        
+        Service(string n, Department* dep,double p, double d, int q, DiscountT dt, double dur, double r, double rd, DiscountT rdt)
+      : Product(n, dep, p, d, q, dt) calls for Product class constructor 
+
+       
+    double GetEffectiveRate()      returns the price after applying the discount
+        
+    double GetTotalPrice()          returns the price for the total quantity
+
+Reason for using double,inheritence,Enum:
+double is used for the prices to handle decimal values
+int is used for quantity
+Enum DiscountT(ype) enum ensures only valid type is used for the discount
+
+
+Main function
+
+uses vectors and adds 3 of each department, products, services then prints each product and service name along its total price.
+
+Reason for using vectors :
+Vectors are used because they allow dynamic memory, and pointers are used for memory managment.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
