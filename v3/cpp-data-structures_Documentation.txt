@@ -1,0 +1,12 @@
+What has been added
+
+added mergeSort and merge functions to sort Item by its total price
+added virtual string getName() const so mergeSort and printing can use the item name.
+Print loop is changed to 
+
+    cout << "Sorted Items (by Total Price):" << endl;
+    for (auto item : Items) {
+        cout << item->getName() << " - " << item->GetTotalPrice() << endl;
+    }
+
+
