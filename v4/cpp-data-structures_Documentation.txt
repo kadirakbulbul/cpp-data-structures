@@ -1,0 +1,38 @@
+What has been added
+
+added to İtem class
+    virtual string getName() const = 0;
+    virtual string getDescription() const = 0;
+    virtual string getId() const = 0;
+
+added Product class
+    string getName() const override { return name; }
+    string getDescription() const override { return description; }
+    string getId() const override { return id; }
+
+added buildBadChar() function to build the Bad Character table
+    vector<int> buildBadChar(const string& pattern) {
+        vector<int> table(256, -1);
+        for (int i = 0; i < pattern.length(); i++)
+            table[(unsigned char)pattern[i]] = i;
+        return table;
+    }
+
+added boyerMoore() function to count pattern occurrences
+
+added search block in main() 
+    for (auto item : İtems) {
+        int count =
+            boyerMoore(item->getName(), search) +
+            boyerMoore(item->getDescription(), search);
+        if (count > 0)
+            results.push_back({item, count});
+    }
+
+results stored in vector<pair<İtem*, int>> and sorted from high to low
+    vector<pair<İtem*, int>> results;
+    sort(results.begin(), results.end(),
+        [](const pair<İtem*, int>& a, const pair<İtem*, int>& b) {
+            return a.second > b.second;
+        });
+
